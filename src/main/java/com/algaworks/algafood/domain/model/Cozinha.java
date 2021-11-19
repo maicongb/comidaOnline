@@ -1,0 +1,38 @@
+package com.algaworks.algafood.domain.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+//GERA EQUALSANDHASHCODE apenas no campo especifico, neste caso no id
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+public class Cozinha {
+	
+	//NO CADASTRO DE COZINHA IGNORA O ID E VALIDA OS DEMAIS CAMPOS
+//	@NotNull(groups = Groups.CozinhaId.class)
+	@EqualsAndHashCode.Include
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+//	@NotBlank
+	@Column(nullable = false)
+	private String nome;
+	
+	@OneToMany(mappedBy = "cozinha")
+	private List<Restaurante> restaurantes = new ArrayList<>();
+	
+	
+}
+

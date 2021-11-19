@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.6.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.algaworks</groupId>
+	<artifactId>algafood-api</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>algafood-api</name>
+	<description>API delivery de comida</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.release>12</maven.compiler.release>
+		<modelmapper.version>2.3.0</modelmapper.version>
+		<squiggly.version>1.3.18</squiggly.version>
+		<springfox.version>2.9.2</springfox.version>
+		<oauth2-oidc-sdk.version>6.21.2</oauth2-oidc-sdk.version>
+	</properties>
+
+	<dependencies>
+		<!-- TESTES DE API -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		<dependency>
+
+			<!-- TRATAR EXCEPTION -->
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<!-- MODEL MAPPER -->
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${modelmapper.version}</version>
+		</dependency>
+
+		<!-- Trabalha com filter-jackson -->
+		<dependency>
+			<groupId>com.github.bohnman</groupId>
+			<artifactId>squiggly-filter-jackson</artifactId>
+			<version>${squiggly.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- ENVIO DE EMAIL -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+		<!-- SERVE PARA COLOCAR UM HTML NO CORPO DO EMAIL -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+
+		<!-- SERVE PARA AUXILIAR NA DOCUMENTACAO -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.plugin</groupId>
+					<artifactId>spring-plugin-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- SERVE PARA AUXILIAR NA DOCUMENTACAO -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+
+		<!-- SERVE PARA AUXILIAR NA VALIDAÇÃO DOS CAMPOS NA DOCUMENTACAO -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-bean-validators</artifactId>
+			<version>${springfox.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.plugin</groupId>
+					<artifactId>spring-plugin-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- SERVE PARA AUXILIAR NA COLOCAÇÃO DE HATEOAS -->
+		<!-- HATEOAS LINKS DE NAVEGAÇÃO -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- SERVE PARA AUXILIAR NA SEGURANÇA -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- SERVE PARA AUXILIAR NA SEGURANÇA -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>
+				spring-boot-starter-oauth2-resource-server
+			</artifactId>
+		</dependency>
+
+		<!-- SERVE PARA AUXILIAR NA SEGURANÇA -->
+		<dependency>
+			<groupId>com.nimbusds</groupId>
+			<artifactId>oauth2-oidc-sdk</artifactId>
+			<version>${oauth2-oidc-sdk.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
