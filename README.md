@@ -1,2 +1,2 @@
 # comidaOnline
-Spring Boot Rest API - pedido de comida online (ifood)
+:coffee: Spring Boot Rest API - pedido de comida online (ifood)
